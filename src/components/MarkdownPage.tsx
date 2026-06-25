@@ -13,7 +13,7 @@ export function MarkdownPage({ path }: Props) {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`/docs/${path}`)
+    fetch(`${import.meta.env.BASE_URL}docs/${path}`)
       .then(r => r.ok ? r.text() : "# Página não encontrada")
       .then(text => { setContent(text); setLoading(false); })
       .catch(() => { setContent("# Erro ao carregar"); setLoading(false); });
